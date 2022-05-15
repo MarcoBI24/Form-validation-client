@@ -1,47 +1,89 @@
 <html>
-	<head></head>
+	<head>
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Quantico:ital,wght@0,400;0,700;1,700&display=swap');
+			</style>
+			<link rel="stylesheet" href="https://i.icomoon.io/public/temp/cf82ef279d/UntitledProject/style.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="index.css">
+		<title>Form</title>
+	</head>
 	<body>
 	
 		<div class="contenedor-general" id="contenedorGeneral">
 			<div class="contenedor-head">
-				<div class="cotenedor-head-title">
-					<h1>Job Applicattion Form</h1>
+				<div class="contenedor-head-title">
+					<h1 class="title">Contáctanos</h1>
 				</div>
 				<div class="contenedor-head-description">
-					<p>Use this contact us form template on your website to receive emails from your visitors in no time. Let us know your questions, suggestions and concerns by filling out the contact form below.</p>
+					<p class="description">Rellene el formulario para que nosotros podamos recibir tus datos y contactarte en una fecha prevista.</p>
 				</div>
 			</div>
 			<form class="contenedor-form" id="form" name="form" novalidate>
-				<label for="name" >Nombre</label>
-				<input type="text" class="name" name="name" id="name" pattern="[A-Za-z]{3,8}" oninput="validar(this)" required>
+				<div class="contenedor-input-nombre">
+					<label for="name" >Nombre</label>
+					<input type="text" class="name" name="name" id="name" pattern="[A-Za-z]{3,8}" oninput="validar(this)" required>
+				</div>
 
-				<label for="lastname">Apellido</label>
-				<input type="text" placeholder="apellido" pattern="[A-Za-z]{5,10}" class="lastname" oninput="validar(this)" id="lastname">
+				<div class="contenedor-input-apellido">
+					<label for="lastname">Apellido</label>
+					<input type="text" placeholder="" pattern="[A-Za-z]{5,10}" class="lastname" oninput="validar(this)" id="lastname">
 
-				<label for="email">Email</label>
-				<input type="email" class="email" id="email">
+				</div>
+				
+				<div class="contenedor-input-email">
+					<label for="email">Email</label>
+					<input type="email" class="email" id="email">
+				</div>
+				
+				<div class="contenedor-input-numero">
 
-				<label for="number">Teléfono</label>
-				<input type="number" class="phone" id="number" required>
+					<label for="number">Teléfono</label>
+					<input type="number" class="phone" id="number" required>
+				</div>
 
-				<label for="propositos">Proposito del Mensaje</label>
-				<select name="propositos" id="propositos">
-					<option value="sugestion">Sugestión</option>
-					<option value="trabajo">Trabajo</option>
-					<option value="Amistad">Amistad</option>
-					<option value="otro">Otro</option>
 
-				</select>
+				<div class="contenedor-input-select">
+					<label for="propositos">Proposito del Mensaje</label>
+					<select name="propositos" id="propositos">
+						<option value="sugestion">Sugestión</option>
+						<option value="trabajo">Trabajo</option>
+						<option value="amistad">Amistad</option>
+						<option value="otro">Otro</option>
+					</select>
 
-				<label for="message">Mensaje</label>
-				<textarea name="message" id="message" cols="30" rows="10" required>
+				</div>
+				
+				<div class="contenedor-input-mensaje">
+					<label for="message">Mensaje</label>
+					<textarea name="message" id="message" cols="30" rows="10" required></textarea>
+				</div>
 
-				</textarea>
-
-				<input type="submit" id="enviar" value="enviar">
+				
+				
+				<input type="submit" id="enviar" value="Enviar">
+				<div class="contenedor-terminos">
+					<input type="checkbox" name="terminos" id="terminos" class="terminos-box">
+					<p class="terminos">Acépto los Términos y Condiciones</p>
+				</div>
 			</form>
+
 		</div>
-		
+		<footer class="contenedor-footer">
+			<div class="autor">
+				<p class="nombreAutor"> HECHO POR MARCO BERNA</p>
+
+			</div>
+			<div class="redes">
+				<!-- <p>Me puedes encontrar en</p> -->
+				<ul class="redes-ul">
+					<li><span class="icon-facebook icon"></span></li>
+					<li><span class="icon-github icon"></span></li>
+					<li><span class="icon-twitter icon"></span></li>
+				</ul>
+			</div>
+			
+		</footer>
 		
 		
 
@@ -53,11 +95,11 @@
 		
 		// btnSend.addEventListener("click", validar(event))
 		function validar(innput) {
-			if (innput.checkValidity() === false) {
-				innput.style.outline = "2px solid red";
+			if (innput.checkValidity() === false || innput.value == 0) {
+				innput.style.borderColor = "red";
 				console.log(innput.validity.valid);
 			}else{
-				innput.style.outline = "2px solid green";
+				innput.style.borderColor = "green";
 			}
 			// let inptNombre = document.getElementById("name");
 			// let inptApellido = document.getElementById("lastname")
