@@ -3,15 +3,20 @@
     margin: 0;
     box-sizing: border-box;
 }
+body{
+    /* padding: 50px; */
+    background-color: #000;
+}
 .contenedor-general{
     background-color: white;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    padding: 20px;
-    gap: 30px;
-
+    padding: 20px calc(20px + 1vw);
+    gap: 30px; 
+    max-width: 900px;
 }
+
 /* head del contenedor */
 .contenedor-head{
     width: 100%;
@@ -36,14 +41,12 @@
     font-weight: 400;
     font-size: calc(.7rem + 1vw);
 }
-.contenedor-form{
-    width: 100%;
-    /* border: 2px solid yellow; */
-}
+
 /* fin del head del contenedor */
 /* inicio del contenedor del form */
 
 .contenedor-form{
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     gap: 25px;
@@ -174,4 +177,186 @@ input{
 }
 .icon{
     font-size: calc(1rem + 1vw);
+}
+@media screen and (min-width: 800px) {
+    body{
+        /* padding: 50px; */
+    }
+    .contenedor-general{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 50px calc(100px + 1vw);
+        gap: 30px; 
+        margin: auto;
+        max-width: 1000px;
+        transform: scale(.92);
+    }
+    
+    /* head del contenedor */
+    .contenedor-head{
+        width: 100%;
+        /* border: 2px solid red; */
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .contenedor-head-title{
+        
+    }
+    .contenedor-head-description{
+        
+    }
+    .title{
+        font-family: "Quantico";
+        font-weight: 700;
+        font-size: calc(2rem + 2vw)
+    }
+    .description{
+        font-family: "Quantico";
+        font-weight: 400;
+        font-size: calc(.5rem + .7vw);
+    }
+    
+    /* fin del head del contenedor */
+    /* inicio del contenedor del form */
+    
+    .contenedor-form{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+    form div{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    label{
+        font-family: "Quantico";
+        /* border: 1px solid blue; */
+        font-size: calc(.8rem + 1vmin);
+    }
+    label{
+        color: rgb(0, 0, 0);
+    }
+    input{
+        background-color: transparent;
+        outline: none;
+        font-family: "Quantico";
+        font-size: calc(1rem + .3vw);
+        padding: 5px;
+        border-style: solid;
+        border-color: rgb(43, 42, 42);
+        border-width: 0px 0px 3px 0px;
+    
+    }
+    
+    .contenedor-input-nombre{
+        /* border: 1px solid red; */
+        flex: 1 1 45%;
+    }
+    
+    .contenedor-input-apellido{
+        /* border: 1px solid rgb(68, 67, 67); */
+        flex: 1 1 45%;
+
+    }
+    .contenedor-input-email{
+        /* border: 1px solid rgb(0, 255, 55); */
+    }
+    .contenedor-input-numero{
+        /* border: 1px solid rgb(0, 217, 255); */
+        flex: 1 1 45%;
+
+    }
+    .contenedor-input-select{
+        /* border: 1px solid rgb(0, 255, 21); */
+        flex: 1 1 45%;
+        display: flex;
+        justify-content: space-between;
+    }
+    #propositos{
+        font-family: "Quantico";
+        font-size: calc(.2rem + 2vmin);
+        max-width: 40%;
+        background-color: black;
+        color: white;
+        border-radius: 0px;
+    }
+    #propositos:focus{
+        color: rgb(149, 196, 149);
+        border-radius: 0px;
+    
+    }
+    .contenedor-input-mensaje{
+        /* border: 1px solid rgb(255, 145, 0); */
+
+    }
+    #message{
+        outline: none;
+        border-color: black;
+        border-width: 0px 0px 4px 0px;
+        font-family: "Quantico";
+        font-weight: 300;
+        font-size: calc(.8rem + 1vw);
+        height: 120px;
+    }
+    
+    #enviar{
+        font-size: calc(1rem + 1vw);
+        background: #000;
+        color: #fff;
+        margin: auto;
+        padding: 10px 35px;
+        box-shadow: 3px 3px 1px white, 5px 5px 1px black;
+        
+    }
+    .contenedor-terminos{
+        display: flex;
+        flex-direction: row;
+        font-family: "Quantico";
+        justify-content: center;
+        align-items: center;
+    }
+    .terminos-box{
+        width: 20px;
+    }
+    .terminos-box:checked{
+        padding: 10px;
+        background-color: aqua;
+    }
+    
+    
+    /* footer */
+    .contenedor-footer{
+        background-color: #000;
+        color: white;
+        display: flex;  
+        flex-direction: column;
+        padding: calc(20px + 1vw);
+        gap: 20px;
+    
+    }
+    .autor{
+        font-family: "Quantico";
+        font-weight: 700;
+        font-size: calc(.6rem + 1vw);
+        align-self: center;
+    }
+    .redes{
+        font-family: "Quantico";
+        font-size: calc(.9rem + 1vw);
+        display: flex;
+        justify-content: center;
+    }
+    .redes-ul{
+        display: flex;
+    
+        list-style: none;
+        gap: 30px;
+    }
+    .icon{
+        font-size: calc(1rem + 1vw);
+    }
 }
