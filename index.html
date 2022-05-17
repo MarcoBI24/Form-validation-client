@@ -19,33 +19,60 @@
 					<p class="description">Rellene el formulario para que nosotros podamos recibir tus datos y contactarte en una fecha prevista.</p>
 				</div>
 			</div>
-			<form class="contenedor-form" id="form" name="form" novalidate>
+
+
+
+
+			<form class="contenedor-form" id="form" name="form"  >
 				<div class="contenedor-input-nombre">
 					<label for="name" >Nombre</label>
-					<input type="text" class="name" name="name" id="name" pattern="[A-Za-z]{3,8}" oninput="validar(this)" required>
-				</div>
-
-				<div class="contenedor-input-apellido">
-					<label for="lastname">Apellido</label>
-					<input type="text" placeholder="" pattern="[A-Za-z]{5,10}" class="lastname" oninput="validar(this)" id="lastname">
+					<input type="text" autofocus  class="name" name="name" id="name" pattern="[A-Za-z\s]{3,30}" oninvalid="validarInvalid(this,event)"	oninput="validarInput(this)"  required >
+					
+					<span class="name1">El nombre debe de tener letras de A a la Z </span>
+					<span class="name2">Nombre permitido</span>
+					<span class="completar" id="completar">Este campo no puede estar incompleto</span>
 
 				</div>
 				
+				<div class="contenedor-input-apellido">
+					<label for="lastname">Apellido</label>
+					<input type="text" placeholder="" pattern="[A-Za-z\s]{3,30}" class="lastname" id="lastname" oninvalid="validarInvalid(this,event)" oninput="validarInput(this)" required>
+					<span class="apellido1">El apellido debe de tener letras de A a la Z </span>
+					<span class="apellido2">Apellido permitido</span>
+					<span class="completar" id="completar">Este campo no puede estar incompleto</span>
+
+				</div>
+
+				<!-- hacer un data list para dar  opciones de emails al usuario -->
 				<div class="contenedor-input-email">
 					<label for="email">Email</label>
-					<input type="email" class="email" id="email">
+
+					<input type="email" autocomplete="bday"  class="email" id="email" pattern=".+@gmail.com" list="correos" oninput="validarInput(this)"  oninvalid="validarInvalid(this,event)" required >
+					<span class="email1">El email debe de contener @gmail.com </span>
+					<span class="email2">Email permitido</span>
+					<span class="completar" id="completar">Este campo no puede estar incompleto</span>
+					<datalist id="correos">
+						<option value="juan@gmail.com"></option>
+						<option value="marco@gmail.com"></option>
+						<option value="berna@gmail.com"></option>
+						<option value="jefferson@gmail.com"></option>
+						<option value="victor@gmail.com"></option>
+					</datalist>
 				</div>
 				
 				<div class="contenedor-input-numero">
 
-					<label for="number">Teléfono</label>
-					<input type="number" class="phone" id="number" required>
+					<label for="number"  >Teléfono</label>
+					<input type="text"  class="phone" id="number" pattern="[0-9]{9}" oninvalid="validarInvalid(this,event)" oninput="validarInput(this)" required>
+					<span class="numero1">El número debe de contener 9 digitos </span>
+					<span class="numero2">Número permitido</span>
+					<span class="completar" id="completar">Este campo no puede estar incompleto</span>
 				</div>
 
 
 				<div class="contenedor-input-select">
 					<label for="propositos">Proposito del Mensaje</label>
-					<select name="propositos" id="propositos">
+					<select name="propositos" id="propositos" >
 						<option value="sugestion">Sugestión</option>
 						<option value="trabajo">Trabajo</option>
 						<option value="amistad">Amistad</option>
@@ -56,7 +83,8 @@
 				
 				<div class="contenedor-input-mensaje">
 					<label for="message">Mensaje</label>
-					<textarea name="message" id="message" cols="30" rows="10" required></textarea>
+					<textarea name="message" id="message" cols="30" rows="10" required oninvalid="validarInvalid(this,event)"></textarea>
+					
 				</div>
 
 				
@@ -87,27 +115,7 @@
 		
 		
 
-	<script>
-		let contenedorGeneral = document.getElementById("contenedorGeneral")
-		let inptNombre = document.getElementById("name");
-		let form = document.getElementById("form")
-		let btnSend = document.getElementById("enviar")
-		
-		// btnSend.addEventListener("click", validar(event))
-		function validar(innput) {
-			if (innput.checkValidity() === false || innput.value == 0) {
-				innput.style.borderColor = "red";
-				console.log(innput.validity.valid);
-			}else{
-				innput.style.borderColor = "green";
-			}
-			// let inptNombre = document.getElementById("name");
-			// let inptApellido = document.getElementById("lastname")
-			// let inptEmail = document.getElementById("email")
-			// let inptTelefono = document.getElementById("number")
-			// let selectProposito = document.getElementById("propositos")
-		}
-	</script>
+	<script src="index.js"></script>
 	</body>
 
 
